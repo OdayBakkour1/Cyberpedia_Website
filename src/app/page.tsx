@@ -5,7 +5,6 @@ import { Shield, Lock, Eye, Users, CheckCircle, Zap, Globe, UserCheck, Timer, Gl
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { usePathname } from 'next/navigation';
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -34,13 +33,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description }) =
     </div>
     <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
   </Card>
-);
-
-const Feature: React.FC<FeatureProps> = ({ text }) => (
-  <div className="flex items-center space-x-3">
-    <CheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-    <span className="text-slate-300">{text}</span>
-  </div>
 );
 
 const Stat: React.FC<StatProps> = ({ number, label }) => (

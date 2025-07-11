@@ -183,8 +183,9 @@ function CharactersAnimation() {
 
     // Cleanup function
     return () => {
-      if (charactersRef.current) {
-        charactersRef.current.innerHTML = '';
+      const ref = charactersRef.current;
+      if (ref) {
+        ref.innerHTML = '';
       }
     };
   }, []);

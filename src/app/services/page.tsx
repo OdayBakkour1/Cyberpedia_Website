@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import { Shield, Lock, Eye, Users, Award, Layers, CheckCircle } from "lucide-react";
+import { Zap, Globe, Shield, Lock, Eye, Users, Award, Layers, CheckCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
