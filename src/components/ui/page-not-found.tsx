@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 
 // Combined component for 404 page
@@ -95,6 +95,7 @@ function CharactersAnimation() {
   const charactersRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const charactersElement = charactersRef.current;
     // Define stick figures with their properties
     const stickFigures: StickFigure[] = [
       {
@@ -135,8 +136,8 @@ function CharactersAnimation() {
     ];
 
     // Clear existing content
-    if (charactersRef.current) {
-      charactersRef.current.innerHTML = '';
+    if (charactersElement) {
+      charactersElement.innerHTML = '';
     }
 
     // Create and animate each stick figure
@@ -158,7 +159,7 @@ function CharactersAnimation() {
       if (figure.transform) stick.style.transform = figure.transform;
 
       // Append to the container
-      charactersRef.current?.appendChild(stick);
+      charactersElement?.appendChild(stick);
 
       // Skip animation for the last figure (index 5)
       if (index === 5) return;
@@ -183,9 +184,8 @@ function CharactersAnimation() {
 
     // Cleanup function
     return () => {
-      const ref = charactersRef.current;
-      if (ref) {
-        ref.innerHTML = '';
+      if (charactersElement) {
+        charactersElement.innerHTML = '';
       }
     };
   }, []);
@@ -222,12 +222,11 @@ interface Circulo {
 
 function CircleAnimation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const requestIdRef = useRef<number>();
+  const requestIdRef = useRef<number | null>(null);
   const timerRef = useRef(0);
   const circulosRef = useRef<Circulo[]>([]);
 
-  // Initialize circles array
-  const initArr = () => {
+  const initArr = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
@@ -246,10 +245,9 @@ function CircleAnimation() {
       
       circulosRef.current.push({ x: randomX, y: randomY, size });
     }
-  };
+  }, []);
 
-  // Drawing function
-  const draw = () => {
+  const draw = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
@@ -290,7 +288,7 @@ function CircleAnimation() {
     }
     
     requestIdRef.current = requestAnimationFrame(draw);
-  };
+  }, [initArr]);
 
   // Initialize canvas and start animation
   useEffect(() => {
@@ -336,7 +334,7 @@ function CircleAnimation() {
         cancelAnimationFrame(requestIdRef.current);
       }
     };
-  }, [draw]);
+  }, [draw, initArr]);
 
   return <canvas ref={canvasRef} className="w-full h-full" />;
 }
