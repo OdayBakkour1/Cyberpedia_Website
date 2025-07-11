@@ -336,7 +336,7 @@ function CircleAnimation() {
         cancelAnimationFrame(requestIdRef.current);
       }
     };
-  }, []);
+  }, [draw]);
 
   return <canvas ref={canvasRef} className="w-full h-full" />;
 }

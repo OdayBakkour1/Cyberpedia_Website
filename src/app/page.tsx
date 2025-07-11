@@ -12,10 +12,6 @@ interface ServiceCardProps {
   description: string;
 }
 
-interface FeatureProps {
-  text: string;
-}
-
 interface StatProps {
   number: string;
   label: string;

@@ -220,7 +220,7 @@ const AboutPage: React.FC = () => {
                 <div className="space-y-6 text-lg text-slate-300 leading-relaxed">
                   <p>
                     We exist to democratize cybersecurity. Too many businesses struggle with complex,
-                    expensive solutions that don't fit their needs. We're changing that narrative.
+                    expensive solutions that don&apos;t fit their needs. We&apos;re changing that narrative.
                   </p>
                   <p>
                     Our mission is simple: make enterprise-level security accessible, understandable,
