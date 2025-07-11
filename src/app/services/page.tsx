@@ -204,7 +204,7 @@ const ServicesPage: React.FC = () => {
                   </p>
                   <Link href={`/services/${service.title.toLowerCase().replace(/\s+/g, "-")}`}
                     className="inline-block mt-4">
-                    <Button size="sm" variant="outline" className="border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white transition-colors duration-300">
+                    <Button size="sm" variant="default" className="border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white transition-colors duration-300">
                       Details
                     </Button>
                   </Link>
