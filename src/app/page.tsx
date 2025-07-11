@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
-import { Shield, Lock, Eye, Users, CheckCircle, ArrowRight, Menu, X, Zap, Globe, UserCheck, Timer, Globe2, Star, Layers, Linkedin, Facebook, Send, Plus } from 'lucide-react';
+import { Shield, Lock, Eye, Users, CheckCircle, Zap, Globe, UserCheck, Timer, Globe2, Star, Layers, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -54,9 +54,6 @@ const Stat: React.FC<StatProps> = ({ number, label }) => (
 );
 
 const CybersecurityLanding: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const pathname = usePathname();
-
   const services = [
     {
       icon: <Shield className="w-12 h-12" />, title: "Cloud Security", description: "Secure your cloud journey with end-to-end encryption, zero-trust access, and real-time threat detection."
@@ -181,7 +178,7 @@ const CybersecurityLanding: React.FC = () => {
             </div>
             {/* Center: Image */}
             <div className="flex justify-center items-center">
-              <img src="/CYBERPEDIA-Logo.webp" alt="Who We Are" className="rounded-xl object-contain w-full max-w-xs md:max-w-sm lg:max-w-md shadow-lg border border-cyan-500/10 bg-slate-900/60" />
+              <Image src="/CYBERPEDIA-Logo.webp" alt="Who We Are" width={400} height={200} className="rounded-xl object-contain w-full max-w-xs md:max-w-sm lg:max-w-md shadow-lg border border-cyan-500/10 bg-slate-900/60" />
             </div>
             {/* Right: Summary & Button */}
             <div className="flex flex-col h-full justify-between">

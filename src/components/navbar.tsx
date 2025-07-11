@@ -16,10 +16,10 @@ export default function Navbar() {
             <Image src="/CYBERPEDIA Logo NAV.png" alt="CYBERPEDIA Logo" width={160} height={160} className="w-40 h-40 my-[-32px]" />
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className={`text-slate-300 hover:text-cyan-400 transition-colors${pathname === '/' ? ' text-cyan-400' : ''} font-designer`}>Home</a>
-            <a href="/about" className={`text-slate-300 hover:text-cyan-400 transition-colors${pathname === '/about' ? ' text-cyan-400' : ''} font-designer`}>About us</a>
-            <a href="/services" className={`text-slate-300 hover:text-cyan-400 transition-colors${pathname === '/services' ? ' text-cyan-400' : ''} font-designer`}>Services</a>
-            <a href="/blog" className={`text-slate-300 hover:text-cyan-400 transition-colors${pathname === '/blog' ? ' text-cyan-400' : ''} font-designer`}>Blog</a>
+            <Link href="/" className={`text-slate-300 hover:text-cyan-400 transition-colors${pathname === '/' ? ' text-cyan-400' : ''} font-designer`}>Home</Link>
+            <Link href="/about" className={`text-slate-300 hover:text-cyan-400 transition-colors${pathname === '/about' ? ' text-cyan-400' : ''} font-designer`}>About us</Link>
+            <Link href="/services" className={`text-slate-300 hover:text-cyan-400 transition-colors${pathname === '/services' ? ' text-cyan-400' : ''} font-designer`}>Services</Link>
+            <Link href="/blog" className={`text-slate-300 hover:text-cyan-400 transition-colors${pathname === '/blog' ? ' text-cyan-400' : ''} font-designer`}>Blog</Link>
             {/* Desktop nav */}
             <Button className="bg-cyan-600 hover:bg-cyan-700 text-white">
               <Link href="/contact" className="w-full h-full block">Contact Us</Link>
@@ -36,10 +36,10 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden bg-slate-900 border-t border-cyan-500/20">
           <div className="px-4 py-4 space-y-4">
-            <a href="/" className={`block text-slate-300 hover:text-cyan-400${pathname === '/' ? ' text-cyan-400' : ''} font-designer`}>Home</a>
-            <a href="/about" className={`block text-slate-300 hover:text-cyan-400${pathname === '/about' ? ' text-cyan-400' : ''} font-designer`}>About us</a>
-            <a href="/services" className={`block text-slate-300 hover:text-cyan-400${pathname === '/services' ? ' text-cyan-400' : ''} font-designer`}>Services</a>
-            <a href="/blog" className={`block text-slate-300 hover:text-cyan-400${pathname === '/blog' ? ' text-cyan-400' : ''} font-designer`}>Blog</a>
+            <Link href="/" className={`block text-slate-300 hover:text-cyan-400${pathname === '/' ? ' text-cyan-400' : ''} font-designer`}>Home</Link>
+            <Link href="/about" className={`block text-slate-300 hover:text-cyan-400${pathname === '/about' ? ' text-cyan-400' : ''} font-designer`}>About us</Link>
+            <Link href="/services" className={`block text-slate-300 hover:text-cyan-400${pathname === '/services' ? ' text-cyan-400' : ''} font-designer`}>Services</Link>
+            <Link href="/blog" className={`block text-slate-300 hover:text-cyan-400${pathname === '/blog' ? ' text-cyan-400' : ''} font-designer`}>Blog</Link>
             {/* Mobile nav */}
             <Button className="w-full bg-cyan-600 hover:bg-cyan-700 text-white">
               <Link href="/contact" className="w-full h-full block">Contact Us</Link>

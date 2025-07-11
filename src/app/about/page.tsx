@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import { Shield, Lock, Eye, Users, Award, Globe, ArrowRight, CheckCircle, Target, Zap, Heart } from "lucide-react";
+import { Shield, Lock, Eye, Users, Award, CheckCircle, Target, Zap, Heart } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 interface TeamMember {
   name: string;
@@ -223,11 +224,10 @@ const AboutPage: React.FC = () => {
                   </p>
                   <p>
                     Our mission is simple: make enterprise-level security accessible, understandable,
-                    and effective for organizations of every size. We believe protection shouldn't be
-                    a privilege—it's a right.
+                    and effective for organizations of every size. We believe protection shouldn&apos;t be a privilege—it&apos;s a right.
                   </p>
                   <p>
-                    Through innovation, expertise, and genuine partnership, we're building a digital
+                    Through innovation, expertise, and genuine partnership, we&apos;re building a digital
                     world where security empowers rather than constrains business growth.
                   </p>
                 </div>
@@ -357,9 +357,11 @@ const AboutPage: React.FC = () => {
                   {/* Image container with 3D effect */}
                   <div className="relative aspect-square overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-blue-400/20 to-cyan-400/25 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"></div>
-                    <img
+                    <Image
                       src={member.image}
                       alt={member.name}
+                      width={400}
+                      height={400}
                       className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                     />
                     {/* Overlay with gradient */}

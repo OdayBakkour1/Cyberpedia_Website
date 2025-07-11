@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
-import { Lock, ArrowRight, CheckCircle, Eye, Shield } from "lucide-react";
+import { Lock, CheckCircle, Eye, Shield } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
 
 const DevSecOpsPage: React.FC = () => (
   <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
