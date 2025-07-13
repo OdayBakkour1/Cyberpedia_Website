@@ -1,6 +1,21 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
+interface Internship {
+  id: string;
+  title: string;
+  duration: string;
+  openings: string;
+  deadline: string;
+  shortDescription: string;
+  overview: string;
+  requirements: string;
+  responsibilities: string;
+  outcome: string;
+  applicationEmail: string;
+  applicationSubject: string;
+}
+
 function getDaysLeft(deadline: string) {
   const now = new Date();
   const diff = new Date(deadline).getTime() - now.getTime();
@@ -8,7 +23,7 @@ function getDaysLeft(deadline: string) {
 }
 
 export default function InternshipsPage() {
-  const [internships, setInternships] = useState<any[]>([]);
+  const [internships, setInternships] = useState<Internship[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(null);

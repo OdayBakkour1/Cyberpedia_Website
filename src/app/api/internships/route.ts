@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Client } from '@notionhq/client';
+import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
 const NOTION_DATABASE_ID = '22f1a80d-02b9-80d2-9923-f4e5113e990e';
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
@@ -10,7 +11,7 @@ export async function GET() {
       database_id: NOTION_DATABASE_ID,
       sorts: [{ property: 'Deadline', direction: 'ascending' }],
     });
-    const internships = response.results.map((page: any) => {
+    const internships = response.results.map((page: PageObjectResponse) => {
       const props = page.properties;
       return {
         id: page.id,
@@ -29,6 +30,6 @@ export async function GET() {
     });
     return NextResponse.json({ internships });
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: (error as Error).message }, { status: 500 });
   }
 } 
