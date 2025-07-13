@@ -32,7 +32,26 @@ const adjust = (
 const easeInOutCubic = (x: number): number =>
   x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 
-const ProfileCardComponent = ({
+interface ProfileCardProps {
+  avatarUrl?: string;
+  iconUrl?: string;
+  grainUrl?: string;
+  behindGradient?: string;
+  innerGradient?: string;
+  showBehindGradient?: boolean;
+  className?: string;
+  enableTilt?: boolean;
+  miniAvatarUrl?: string;
+  name?: string;
+  title?: string;
+  handle?: string;
+  status?: string;
+  contactText?: string;
+  showUserInfo?: boolean;
+  onContactClick?: () => void;
+}
+
+const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   avatarUrl = "<Placeholder for avatar URL>",
   iconUrl = "<Placeholder for icon URL>",
   grainUrl = "<Placeholder for grain URL>",
@@ -50,13 +69,13 @@ const ProfileCardComponent = ({
   showUserInfo = true,
   onContactClick,
 }) => {
-  const wrapRef = useRef(null);
-  const cardRef = useRef(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const animationHandlers = useMemo(() => {
     if (!enableTilt) return null;
 
-    let rafId = null;
+    let rafId: number | null = null;
 
     const updateCardTransform = (
       offsetX: number,
@@ -243,7 +262,7 @@ const ProfileCardComponent = ({
     <div
       ref={wrapRef}
       className={`pc-card-wrapper ${className}`.trim()}
-      style={cardStyle}
+      style={cardStyle as React.CSSProperties}
     >
       <section ref={cardRef} className="pc-card">
         <div className="pc-inside">
@@ -256,7 +275,7 @@ const ProfileCardComponent = ({
               alt={`${name || "User"} avatar`}
               loading="lazy"
               onError={(e) => {
-                const target = e.target;
+                const target = e.target as HTMLImageElement;
                 target.style.display = "none";
               }}
             />
@@ -269,7 +288,7 @@ const ProfileCardComponent = ({
                       alt={`${name || "User"} mini avatar`}
                       loading="lazy"
                       onError={(e) => {
-                        const target = e.target;
+                        const target = e.target as HTMLImageElement;
                         target.style.opacity = "0.5";
                         target.src = avatarUrl;
                       }}
