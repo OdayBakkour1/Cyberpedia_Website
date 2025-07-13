@@ -74,8 +74,14 @@ export default function InternshipsPage() {
 
       {/* Internship Opportunities Grid */}
       {!loading && !error && internships.length === 0 && (
-        <div className="text-center text-slate-400 py-16 text-xl">
-          Check back soon – we don’t have any internships available right now.
+        <div className="flex justify-center items-center py-24">
+          <div className="bg-gradient-to-r from-cyan-900/80 to-blue-900/80 border border-cyan-500/30 rounded-2xl shadow-xl px-8 py-10 max-w-xl w-full text-center">
+            <div className="flex flex-col items-center gap-3">
+              <span className="text-cyan-400 text-4xl">🔔</span>
+              <span className="text-xl font-bold text-cyan-200">No Internships Available</span>
+              <span className="text-slate-300 text-base">Check back soon – we don’t have any internships available right now.</span>
+            </div>
+          </div>
         </div>
       )}
       {!loading && !error && internships.length > 0 && (
