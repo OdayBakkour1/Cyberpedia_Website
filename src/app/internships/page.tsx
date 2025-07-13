@@ -111,22 +111,26 @@ export default function InternshipsPage() {
             return (
               <div key={idx} className="bg-slate-900/80 rounded-2xl shadow-xl p-8 border border-cyan-500/20 relative flex flex-col">
                 <span className="absolute top-4 right-4 bg-cyan-600 text-white text-xs px-3 py-1 rounded-full font-bold animate-pulse">New</span>
-                <h2 className="text-2xl font-bold text-cyan-400 mb-2 font-designer flex items-center gap-2">
-                  {internship.title}
-                </h2>
-                <div className="flex flex-wrap gap-4 mb-4 text-slate-300 text-sm">
-                  <span>Duration: <b className="text-white">{internship.duration}</b></span>
-                  <span>Openings: <b className="text-white">{internship.openings}</b></span>
-                  <span>Deadline: <b className="text-white">{internship.deadline.toLocaleDateString()}</b></span>
-                  <span className="bg-cyan-700/20 text-cyan-300 px-2 py-1 rounded text-xs font-semibold ml-auto">{daysLeft} days left to apply</span>
+                <div className="flex flex-col flex-1 justify-between">
+                  <div>
+                    <h2 className="text-2xl font-bold text-cyan-400 mb-2 font-designer flex items-center gap-2">
+                      {internship.title}
+                    </h2>
+                    <div className="flex flex-wrap gap-4 mb-4 text-slate-300 text-sm">
+                      <span>Duration: <b className="text-white">{internship.duration}</b></span>
+                      <span>Openings: <b className="text-white">{internship.openings}</b></span>
+                      <span>Deadline: <b className="text-white">{internship.deadline.toLocaleDateString()}</b></span>
+                      <span className="bg-cyan-700/20 text-cyan-300 px-2 py-1 rounded text-xs font-semibold ml-auto">{daysLeft} days left to apply</span>
+                    </div>
+                    <p className="mb-6 text-slate-200 min-h-[72px]">{internship.shortDescription}</p>
+                  </div>
+                  <button
+                    className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-all duration-300 mt-auto"
+                    onClick={() => setOpenIndex(idx)}
+                  >
+                    View Details
+                  </button>
                 </div>
-                <p className="mb-6 text-slate-200">{internship.shortDescription}</p>
-                <button
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-all duration-300"
-                  onClick={() => setOpenIndex(idx)}
-                >
-                  View Details
-                </button>
               </div>
             );
           })}
