@@ -5,6 +5,27 @@ import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 const NOTION_DATABASE_ID = '22f1a80d-02b9-80d2-9923-f4e5113e990e';
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
+function getTitle(props: any, key: string) {
+  return props[key]?.type === 'title' && props[key].title[0]
+    ? props[key].title[0].plain_text
+    : '';
+}
+function getRichText(props: any, key: string) {
+  return props[key]?.type === 'rich_text' && props[key].rich_text[0]
+    ? props[key].rich_text[0].plain_text
+    : '';
+}
+function getDate(props: any, key: string) {
+  return props[key]?.type === 'date' && props[key].date?.start
+    ? props[key].date.start
+    : '';
+}
+function getEmail(props: any, key: string) {
+  return props[key]?.type === 'email' && props[key].email
+    ? props[key].email
+    : '';
+}
+
 export async function GET() {
   try {
     const response = await notion.databases.query({
@@ -20,17 +41,17 @@ export async function GET() {
         const props = page.properties;
         return {
           id: page.id,
-          title: props['Title']?.title?.[0]?.plain_text || '',
-          duration: props['Duration']?.rich_text?.[0]?.plain_text || '',
-          openings: props['Openings']?.rich_text?.[0]?.plain_text || '',
-          deadline: props['Deadline']?.date?.start || '',
-          shortDescription: props['Short Description']?.rich_text?.[0]?.plain_text || '',
-          overview: props['Overview']?.rich_text?.[0]?.plain_text || '',
-          requirements: props['Requirements']?.rich_text?.[0]?.plain_text || '',
-          responsibilities: props['Responsibilities']?.rich_text?.[0]?.plain_text || '',
-          outcome: props['Outcome']?.rich_text?.[0]?.plain_text || '',
-          applicationEmail: props['Application Email']?.email || '',
-          applicationSubject: props['Application Subject']?.rich_text?.[0]?.plain_text || '',
+          title: getTitle(props, 'Title'),
+          duration: getRichText(props, 'Duration'),
+          openings: getRichText(props, 'Openings'),
+          deadline: getDate(props, 'Deadline'),
+          shortDescription: getRichText(props, 'Short Description'),
+          overview: getRichText(props, 'Overview'),
+          requirements: getRichText(props, 'Requirements'),
+          responsibilities: getRichText(props, 'Responsibilities'),
+          outcome: getRichText(props, 'Outcome'),
+          applicationEmail: getEmail(props, 'Application Email'),
+          applicationSubject: getRichText(props, 'Application Subject'),
         };
       });
     return NextResponse.json({ internships });
