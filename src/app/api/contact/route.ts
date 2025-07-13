@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-// Notion MCP API client (imported via MCP server)
-import { functions } from '@/lib/mcp';
+import { Client } from '@notionhq/client';
 
 const NOTION_DATABASE_ID = '22f1a80d-02b9-80ce-b533-df182fd6d0c9';
+
+const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,35 +12,31 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
     }
 
-    // Prepare Notion properties (adjust property names as needed)
-    const properties = {
-      Name: {
-        title: [
-          {
-            text: { content: name },
-          },
-        ],
-      },
-      Email: {
-        rich_text: [
-          {
-            text: { content: email },
-          },
-        ],
-      },
-      Message: {
-        rich_text: [
-          {
-            text: { content: message },
-          },
-        ],
-      },
-    };
-
-    // Call MCP Notion API to create a page
-    await functions.mcp_notionApi_API-post-page({
+    await notion.pages.create({
       parent: { database_id: NOTION_DATABASE_ID },
-      properties,
+      properties: {
+        Name: {
+          title: [
+            {
+              text: { content: name },
+            },
+          ],
+        },
+        Email: {
+          rich_text: [
+            {
+              text: { content: email },
+            },
+          ],
+        },
+        Message: {
+          rich_text: [
+            {
+              text: { content: message },
+            },
+          ],
+        },
+      },
     });
 
     return NextResponse.json({ success: true });
