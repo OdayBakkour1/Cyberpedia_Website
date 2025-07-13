@@ -20,6 +20,7 @@ export default function Navbar() {
             <Link href="/about" className={`text-slate-300 hover:text-cyan-400 transition-colors${pathname === '/about' ? ' text-cyan-400' : ''} font-designer`}>About us</Link>
             <Link href="/services" className={`text-slate-300 hover:text-cyan-400 transition-colors${pathname === '/services' ? ' text-cyan-400' : ''} font-designer`}>Services</Link>
             <Link href="/blog" className={`text-slate-300 hover:text-cyan-400 transition-colors${pathname === '/blog' ? ' text-cyan-400' : ''} font-designer`}>Blog</Link>
+            <Link href="/internships" className={`text-slate-300 hover:text-cyan-400 transition-colors${pathname === '/internships' ? ' text-cyan-400' : ''} font-designer`}>Internships</Link>
             {/* Desktop nav */}
             <Button className="bg-cyan-600 hover:bg-cyan-700 text-white">
               <Link href="/contact" className="w-full h-full block">Contact Us</Link>
@@ -40,6 +41,7 @@ export default function Navbar() {
             <Link href="/about" className={`block text-slate-300 hover:text-cyan-400${pathname === '/about' ? ' text-cyan-400' : ''} font-designer`}>About us</Link>
             <Link href="/services" className={`block text-slate-300 hover:text-cyan-400${pathname === '/services' ? ' text-cyan-400' : ''} font-designer`}>Services</Link>
             <Link href="/blog" className={`block text-slate-300 hover:text-cyan-400${pathname === '/blog' ? ' text-cyan-400' : ''} font-designer`}>Blog</Link>
+            <Link href="/internships" className={`block text-slate-300 hover:text-cyan-400${pathname === '/internships' ? ' text-cyan-400' : ''} font-designer`}>Internships</Link>
             {/* Mobile nav */}
             <Button className="w-full bg-cyan-600 hover:bg-cyan-700 text-white">
               <Link href="/contact" className="w-full h-full block">Contact Us</Link>
