@@ -8,15 +8,31 @@ import { Badge } from "@/components/ui/badge";
 const ContactPage: React.FC = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Here you would handle sending the form (API, email, etc.)
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        const data = await res.json();
+        setError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Network error. Please try again.");
+    }
   };
 
   return (
@@ -83,6 +99,7 @@ const ContactPage: React.FC = () => {
                     className="w-full rounded-lg bg-slate-800/80 border border-cyan-500/20 px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/40"
                   />
                 </div>
+                {error && <div className="text-red-400 text-sm text-center">{error}</div>}
                 <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white px-8 py-3 text-lg mt-2 flex items-center justify-center gap-2">
                   Send Message <Send className="w-5 h-5" />
                 </Button>
