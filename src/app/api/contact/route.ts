@@ -22,12 +22,8 @@ export async function POST(req: NextRequest) {
             },
           ],
         },
-        Email: {
-          rich_text: [
-            {
-              text: { content: email },
-            },
-          ],
+        "Email ": { // Note the trailing space
+          email: email,
         },
         Message: {
           rich_text: [
