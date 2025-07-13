@@ -11,6 +11,7 @@ interface TeamMember {
   role: string;
   image: string;
   expertise: string[];
+  email?: string;
 }
 
 interface Stat {
@@ -90,18 +91,21 @@ const AboutPage: React.FC = () => {
       role: "Founder Of Cyberpedia",
       image: "/jamel.webp",
       expertise: [],
+      email: "jameel.tawelh@cyberpedia.site",
     },
     {
       name: "Obayda Abu kwader",
       role: "CO-Founder Of Cyberpedia",
       image: "/oub.webp",
       expertise: [],
+      email: "obayda.ak@cyberpedia.site",
     },
     {
       name: "Oday Bakkour",
       role: "Operations Manager",
       image: "/Oday.webp",
       expertise: [],
+      email: "oday.bakkour@cyberpedia.site",
     },
   ];
 
@@ -360,7 +364,7 @@ const AboutPage: React.FC = () => {
                   enableTilt={true}
                   behindGradient={undefined}
                   innerGradient={undefined}
-                  onContactClick={() => alert(`Contact ${member.name}`)}
+                  onContactClick={() => window.open(`mailto:${member.email}`)}
                 />
               </div>
             ))}
