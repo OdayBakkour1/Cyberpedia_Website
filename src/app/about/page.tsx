@@ -86,22 +86,22 @@ const AboutPage: React.FC = () => {
 
   const teamMembers: TeamMember[] = [
     {
-      name: "Sarah Chen",
-      role: "Chief Security Officer",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
-      expertise: ["Penetration Testing", "Risk Assessment", "Compliance"],
+      name: "Jameel Tawelh",
+      role: "Founder Of Cyberpedia",
+      image: "/Jamel.webp",
+      expertise: [],
     },
     {
-      name: "Marcus Rodriguez",
-      role: "Lead Security Engineer",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-      expertise: ["Network Security", "Incident Response", "Forensics"],
+      name: "Obayda Abu kwader",
+      role: "CO-Founder Of Cyberpedia",
+      image: "/Ouba.webp",
+      expertise: [],
     },
     {
-      name: "Emily Watson",
-      role: "Security Analyst",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-      expertise: ["Threat Intelligence", "SIEM", "Vulnerability Management"],
+      name: "Oday Bakkour",
+      role: "Operations Manager",
+      image: "/×Oday.webp",
+      expertise: [],
     },
   ];
 
