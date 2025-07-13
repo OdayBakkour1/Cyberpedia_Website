@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import ProfileCard from '@/components/ProfileCard';
 
 interface TeamMember {
   name: string;
@@ -348,56 +349,20 @@ const AboutPage: React.FC = () => {
                 className="group animate-on-scroll opacity-0 translate-y-12 [&.animate-in]:opacity-100 [&.animate-in]:translate-y-0 transition-all duration-700"
                 style={{ animationDelay: `${index * 300 + 500}ms` }}
               >
-                <Card className="relative overflow-hidden border-0 bg-slate-900/80 backdrop-blur-sm hover:bg-slate-900/90 transition-all duration-700 group-hover:scale-105 group-hover:-translate-y-4">
-                  {/* Floating background elements */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                    <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-cyan-400/20 to-blue-400/20 rounded-full blur-sm"></div>
-                    <div className="absolute bottom-8 left-6 w-6 h-6 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-full blur-sm"></div>
-                  </div>
-                  {/* Image container with 3D effect */}
-                  <div className="relative aspect-square overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 via-blue-400/20 to-cyan-400/25 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"></div>
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={400}
-                      height={400}
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                    />
-                    {/* Overlay with gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </div>
-                  <div className="relative p-8 space-y-6">
-                    <div className="space-y-2">
-                      <h3 className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">
-                        {member.name}
-                      </h3>
-                      <p className="text-cyan-400 font-semibold text-lg">
-                        {member.role}
-                      </p>
-                    </div>
-                    <div className="space-y-3">
-                      <p className="text-sm font-medium text-slate-300 uppercase tracking-wider">
-                        Expertise
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {member.expertise.map((skill, skillIndex) => (
-                          <Badge
-                            key={skillIndex}
-                            variant="secondary"
-                            className="text-xs bg-gradient-to-r from-cyan-400/10 to-blue-400/10 border border-cyan-400/20 hover:from-cyan-400/20 hover:to-blue-400/20 transition-all duration-300"
-                          >
-                            {skill}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                    {/* Animated indicator */}
-                    <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
-                      <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full animate-pulse"></div>
-                    </div>
-                  </div>
-                </Card>
+                <ProfileCard
+                  name={member.name}
+                  title={member.role}
+                  avatarUrl={member.image}
+                  miniAvatarUrl={member.image}
+                  handle={member.name.toLowerCase().replace(/\s+/g, "_")}
+                  status={member.role}
+                  contactText="Contact"
+                  showUserInfo={true}
+                  enableTilt={true}
+                  behindGradient={undefined}
+                  innerGradient={undefined}
+                  onContactClick={() => alert(`Contact ${member.name}`)}
+                />
               </div>
             ))}
           </div>
