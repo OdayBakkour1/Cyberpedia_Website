@@ -100,7 +100,7 @@ const AboutPage: React.FC = () => {
     {
       name: "Oday Bakkour",
       role: "Operations Manager",
-      image: "/×Oday.webp",
+      image: "/Oday.webp",
       expertise: [],
     },
   ];
