@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from '@/components/ui/button';
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError(null);
+    setSuccess(false);
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (res.ok) {
+        setSuccess(true);
+        setEmail("");
+      } else {
+        const data = await res.json();
+        setError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <footer className="bg-slate-900 border-t border-cyan-500/20 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -18,16 +48,22 @@ export default function Footer() {
             <div className="space-y-3">
               <h4 className="text-white font-semibold font-designer">Subscribe to our Newsletter</h4>
               <p className="text-sm text-slate-400">Stay updated with the latest security insights and threats.</p>
-              <div className="flex space-x-2">
+              <form className="flex space-x-2" onSubmit={handleSubscribe}>
                 <input
                   type="email"
                   placeholder="Enter your email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  required
                   className="flex-1 px-3 py-2 bg-slate-800 border border-slate-700 rounded-md text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-sm"
+                  disabled={submitting}
                 />
-                <Button size="sm" className="bg-cyan-600 hover:bg-cyan-700 text-white px-4">
-                  Subscribe
+                <Button size="sm" className="bg-cyan-600 hover:bg-cyan-700 text-white px-4" type="submit" disabled={submitting || !email}>
+                  {submitting ? "Subscribing..." : "Subscribe"}
                 </Button>
-              </div>
+              </form>
+              {success && <div className="text-green-400 text-xs mt-2">Thank you for subscribing!</div>}
+              {error && <div className="text-red-400 text-xs mt-2">{error}</div>}
             </div>
           </div>
           <div>
