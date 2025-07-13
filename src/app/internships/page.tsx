@@ -73,7 +73,12 @@ export default function InternshipsPage() {
       )}
 
       {/* Internship Opportunities Grid */}
-      {!loading && !error && (
+      {!loading && !error && internships.length === 0 && (
+        <div className="text-center text-slate-400 py-16 text-xl">
+          Check back soon – we don’t have any internships available right now.
+        </div>
+      )}
+      {!loading && !error && internships.length > 0 && (
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             {internships.map((internship, idx) => {
