@@ -28,34 +28,6 @@ const INTERNSHIP = {
   },
 };
 
-const TESTIMONIALS = [
-  {
-    name: "Sarah K.",
-    role: "Junior SOC Analyst @ Cyberpedia",
-    quote:
-      "This internship turned my bootcamp training into real-world confidence. I now work full-time at Cyberpedia thanks to this opportunity.",
-  },
-];
-
-const FAQS = [
-  {
-    q: "Is this internship paid?",
-    a: "No, but top performers are offered paid full-time roles after completion.",
-  },
-  {
-    q: "Can I apply if I didn’t attend a Cyberpedia bootcamp?",
-    a: "This internship is only available to Cyberpedia graduates at this time.",
-  },
-  {
-    q: "Is the internship remote or in-person?",
-    a: "The internship is fully remote.",
-  },
-  {
-    q: "How will I be evaluated?",
-    a: "Based on your engagement, technical performance, and communication throughout the internship.",
-  },
-];
-
 function getDaysLeft(deadline: Date) {
   const now = new Date();
   const diff = deadline.getTime() - now.getTime();
@@ -64,8 +36,6 @@ function getDaysLeft(deadline: Date) {
 
 export default function InternshipsPage() {
   const [showModal, setShowModal] = useState(false);
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
   const daysLeft = getDaysLeft(INTERNSHIP.deadline);
 
   return (
