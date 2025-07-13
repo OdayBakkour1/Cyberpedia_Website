@@ -88,13 +88,13 @@ const AboutPage: React.FC = () => {
     {
       name: "Jameel Tawelh",
       role: "Founder Of Cyberpedia",
-      image: "/Jamel.webp",
+      image: "/jamel.webp",
       expertise: [],
     },
     {
       name: "Obayda Abu kwader",
       role: "CO-Founder Of Cyberpedia",
-      image: "/Ouba.webp",
+      image: "/oub.webp",
       expertise: [],
     },
     {
