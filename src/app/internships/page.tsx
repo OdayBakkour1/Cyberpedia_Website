@@ -35,7 +35,7 @@ function getDaysLeft(deadline: Date) {
 }
 
 export default function InternshipsPage() {
-  const [showModal, setShowModal] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const daysLeft = getDaysLeft(INTERNSHIP.deadline);
 
   return (
@@ -50,7 +50,7 @@ export default function InternshipsPage() {
         </p>
         <button
           className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-8 py-3 text-lg rounded-lg font-bold shadow-lg transition-all duration-300"
-          onClick={() => setShowModal(true)}
+          onClick={() => setShowDetails(true)}
         >
           View Open Positions
         </button>
@@ -72,79 +72,62 @@ export default function InternshipsPage() {
           <p className="mb-6 text-slate-200">{INTERNSHIP.shortDescription}</p>
           <button
             className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-all duration-300"
-            onClick={() => setShowModal(true)}
+            onClick={() => setShowDetails((prev) => !prev)}
           >
-            View Details
+            {showDetails ? 'Hide Details' : 'View Details'}
           </button>
+          {showDetails && (
+            <div className="mt-8 bg-slate-800 rounded-xl shadow-lg p-6 border border-cyan-500/20 animate-fade-in">
+              <h3 className="text-2xl font-bold text-cyan-400 mb-2 font-designer flex items-center gap-2">
+                🛡️ Cyberpedia | {INTERNSHIP.title}
+              </h3>
+              <div className="mb-4 text-slate-300">
+                <b>Position:</b> {INTERNSHIP.title}<br />
+                <b>Duration:</b> {INTERNSHIP.duration}<br />
+                <b>Openings:</b> {INTERNSHIP.openings}<br />
+                <b>Deadline to Apply:</b> {INTERNSHIP.deadline.toLocaleDateString()}
+              </div>
+              <div className="mb-4">
+                <b className="text-cyan-300">📋 Internship Overview:</b>
+                <p className="text-slate-200 mt-1">{INTERNSHIP.details.overview}</p>
+              </div>
+              <div className="mb-4">
+                <b className="text-cyan-300">✅ Requirements:</b>
+                <ul className="list-disc list-inside text-slate-200 mt-1">
+                  {INTERNSHIP.details.requirements.map((req, i) => (
+                    <li key={i}>{req}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mb-4">
+                <b className="text-cyan-300">🔧 Responsibilities:</b>
+                <ul className="list-disc list-inside text-slate-200 mt-1">
+                  {INTERNSHIP.details.responsibilities.map((res, i) => (
+                    <li key={i}>{res}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mb-4">
+                <b className="text-cyan-300">🎯 Outcome:</b>
+                <p className="text-slate-200 mt-1">{INTERNSHIP.details.outcome}</p>
+              </div>
+              <div className="mb-6">
+                <b className="text-cyan-300">📩 Application:</b>
+                <p className="text-slate-200 mt-1">
+                  Send your CV to <a href={`mailto:${INTERNSHIP.details.applicationEmail}?subject=${encodeURIComponent(INTERNSHIP.details.applicationSubject)}`} className="text-cyan-400 underline">{INTERNSHIP.details.applicationEmail}</a><br />
+                  Subject line: <span className="bg-slate-800 px-2 py-1 rounded text-xs text-cyan-200">{INTERNSHIP.details.applicationSubject}</span>
+                </p>
+              </div>
+              <a
+                href={`mailto:${INTERNSHIP.details.applicationEmail}?subject=${encodeURIComponent(INTERNSHIP.details.applicationSubject)}`}
+                className="block w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-6 py-3 rounded-lg font-bold text-center shadow-md transition-all duration-300 mb-2"
+              >
+                Apply Now
+              </a>
+            </div>
+          )}
         </div>
       </section>
-
-      {/* Internship Modal / Details Section */}
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-          <div className="bg-slate-900 rounded-2xl shadow-2xl p-10 max-w-2xl w-full relative animate-fade-in">
-            <button
-              className="absolute top-4 right-4 text-slate-400 hover:text-cyan-400 text-2xl font-bold"
-              onClick={() => setShowModal(false)}
-              aria-label="Close"
-            >
-              ×
-            </button>
-            <h3 className="text-2xl font-bold text-cyan-400 mb-2 font-designer flex items-center gap-2">
-              🛡️ Cyberpedia | {INTERNSHIP.title}
-            </h3>
-            <div className="mb-4 text-slate-300">
-              <b>Position:</b> {INTERNSHIP.title}<br />
-              <b>Duration:</b> {INTERNSHIP.duration}<br />
-              <b>Openings:</b> {INTERNSHIP.openings}<br />
-              <b>Deadline to Apply:</b> {INTERNSHIP.deadline.toLocaleDateString()}
-            </div>
-            <div className="mb-4">
-              <b className="text-cyan-300">📋 Internship Overview:</b>
-              <p className="text-slate-200 mt-1">{INTERNSHIP.details.overview}</p>
-            </div>
-            <div className="mb-4">
-              <b className="text-cyan-300">✅ Requirements:</b>
-              <ul className="list-disc list-inside text-slate-200 mt-1">
-                {INTERNSHIP.details.requirements.map((req, i) => (
-                  <li key={i}>{req}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="mb-4">
-              <b className="text-cyan-300">🔧 Responsibilities:</b>
-              <ul className="list-disc list-inside text-slate-200 mt-1">
-                {INTERNSHIP.details.responsibilities.map((res, i) => (
-                  <li key={i}>{res}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="mb-4">
-              <b className="text-cyan-300">🎯 Outcome:</b>
-              <p className="text-slate-200 mt-1">{INTERNSHIP.details.outcome}</p>
-            </div>
-            <div className="mb-6">
-              <b className="text-cyan-300">📩 Application:</b>
-              <p className="text-slate-200 mt-1">
-                Send your CV to <a href={`mailto:${INTERNSHIP.details.applicationEmail}?subject=${encodeURIComponent(INTERNSHIP.details.applicationSubject)}`} className="text-cyan-400 underline">{INTERNSHIP.details.applicationEmail}</a><br />
-                Subject line: <span className="bg-slate-800 px-2 py-1 rounded text-xs text-cyan-200">{INTERNSHIP.details.applicationSubject}</span>
-              </p>
-            </div>
-            <a
-              href={`mailto:${INTERNSHIP.details.applicationEmail}?subject=${encodeURIComponent(INTERNSHIP.details.applicationSubject)}`}
-              className="block w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-6 py-3 rounded-lg font-bold text-center shadow-md transition-all duration-300 mb-2"
-            >
-              Apply Now
-            </a>
-            <button
-              className="block w-full text-cyan-400 underline text-sm mt-2"
-              onClick={() => setShowModal(false)}
-            >
-              Back to Opportunities
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 } 
