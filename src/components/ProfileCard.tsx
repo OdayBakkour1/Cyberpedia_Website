@@ -51,24 +51,25 @@ interface ProfileCardProps {
   onContactClick?: () => void;
 }
 
-const ProfileCardComponent: React.FC<ProfileCardProps> = ({
-  avatarUrl = "<Placeholder for avatar URL>",
-  iconUrl = "<Placeholder for icon URL>",
-  grainUrl = "<Placeholder for grain URL>",
-  behindGradient,
-  innerGradient,
-  showBehindGradient = true,
-  className = "",
-  enableTilt = true,
-  miniAvatarUrl,
-  name = "Javi A. Torres",
-  title = "Software Engineer",
-  handle = "javicodes",
-  status = "Online",
-  contactText = "Contact",
-  showUserInfo = true,
-  onContactClick,
-}) => {
+const ProfileCardComponent: React.FC<ProfileCardProps> = (props) => {
+  const {
+    avatarUrl = "<Placeholder for avatar URL>",
+    iconUrl = "<Placeholder for icon URL>",
+    grainUrl = "<Placeholder for grain URL>",
+    behindGradient,
+    innerGradient,
+    showBehindGradient = true,
+    className = "",
+    enableTilt = true,
+    miniAvatarUrl,
+    name = "Javi A. Torres",
+    title = "Software Engineer",
+    handle = "javicodes",
+    status = "Online",
+    contactText = "Contact",
+    showUserInfo = true,
+    onContactClick,
+  } = props;
   const wrapRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
 
