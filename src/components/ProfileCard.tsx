@@ -14,22 +14,22 @@ const ANIMATION_CONFIG = {
   INITIAL_Y_OFFSET: 60,
 };
 
-const clamp = (value, min = 0, max = 100) =>
+const clamp = (value: number, min: number = 0, max: number = 100): number =>
   Math.min(Math.max(value, min), max);
 
-const round = (value, precision = 3) =>
+const round = (value: number, precision: number = 3): number =>
   parseFloat(value.toFixed(precision));
 
 const adjust = (
-  value,
-  fromMin,
-  fromMax,
-  toMin,
-  toMax
-) =>
+  value: number,
+  fromMin: number,
+  fromMax: number,
+  toMin: number,
+  toMax: number
+): number =>
   round(toMin + ((toMax - toMin) * (value - fromMin)) / (fromMax - fromMin));
 
-const easeInOutCubic = (x) =>
+const easeInOutCubic = (x: number): number =>
   x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 
 const ProfileCardComponent = ({
@@ -59,10 +59,10 @@ const ProfileCardComponent = ({
     let rafId = null;
 
     const updateCardTransform = (
-      offsetX,
-      offsetY,
-      card,
-      wrap
+      offsetX: number,
+      offsetY: number,
+      card: HTMLElement,
+      wrap: HTMLElement
     ) => {
       const width = card.clientWidth;
       const height = card.clientHeight;
@@ -91,17 +91,17 @@ const ProfileCardComponent = ({
     };
 
     const createSmoothAnimation = (
-      duration,
-      startX,
-      startY,
-      card,
-      wrap
+      duration: number,
+      startX: number,
+      startY: number,
+      card: HTMLElement,
+      wrap: HTMLElement
     ) => {
       const startTime = performance.now();
       const targetX = wrap.clientWidth / 2;
       const targetY = wrap.clientHeight / 2;
 
-      const animationLoop = (currentTime) => {
+      const animationLoop = (currentTime: number) => {
         const elapsed = currentTime - startTime;
         const progress = clamp(elapsed / duration);
         const easedProgress = easeInOutCubic(progress);
@@ -132,7 +132,7 @@ const ProfileCardComponent = ({
   }, [enableTilt]);
 
   const handlePointerMove = useCallback(
-    (event) => {
+    (event: PointerEvent) => {
       const card = cardRef.current;
       const wrap = wrapRef.current;
 
@@ -161,7 +161,7 @@ const ProfileCardComponent = ({
   }, [animationHandlers]);
 
   const handlePointerLeave = useCallback(
-    (event) => {
+    (event: PointerEvent) => {
       const card = cardRef.current;
       const wrap = wrapRef.current;
 
