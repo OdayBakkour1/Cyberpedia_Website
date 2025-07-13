@@ -92,7 +92,7 @@ export default function InternshipsPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen bg-slate-950 text-white relative">
       {/* Hero Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 text-center bg-gradient-to-br from-cyan-900/20 to-slate-950">
         <h1 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-white via-cyan-300 to-blue-300 bg-clip-text text-transparent mb-6 font-designer">
@@ -123,65 +123,83 @@ export default function InternshipsPage() {
                 <p className="mb-6 text-slate-200">{internship.shortDescription}</p>
                 <button
                   className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-6 py-2 rounded-lg font-bold shadow-md transition-all duration-300"
-                  onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                  onClick={() => setOpenIndex(idx)}
                 >
-                  {openIndex === idx ? 'Hide Details' : 'View Details'}
+                  View Details
                 </button>
-                {openIndex === idx && (
-                  <div className="mt-8 bg-slate-800 rounded-xl shadow-lg p-6 border border-cyan-500/20 animate-fade-in">
-                    <h3 className="text-2xl font-bold text-cyan-400 mb-2 font-designer flex items-center gap-2">
-                      🛡️ Cyberpedia | {internship.title}
-                    </h3>
-                    <div className="mb-4 text-slate-300">
-                      <b>Position:</b> {internship.title}<br />
-                      <b>Duration:</b> {internship.duration}<br />
-                      <b>Openings:</b> {internship.openings}<br />
-                      <b>Deadline to Apply:</b> {internship.deadline.toLocaleDateString()}
-                    </div>
-                    <div className="mb-4">
-                      <b className="text-cyan-300">📋 Internship Overview:</b>
-                      <p className="text-slate-200 mt-1">{internship.details.overview}</p>
-                    </div>
-                    <div className="mb-4">
-                      <b className="text-cyan-300">✅ Requirements:</b>
-                      <ul className="list-disc list-inside text-slate-200 mt-1">
-                        {internship.details.requirements.map((req, i) => (
-                          <li key={i}>{req}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="mb-4">
-                      <b className="text-cyan-300">🔧 Responsibilities:</b>
-                      <ul className="list-disc list-inside text-slate-200 mt-1">
-                        {internship.details.responsibilities.map((res, i) => (
-                          <li key={i}>{res}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="mb-4">
-                      <b className="text-cyan-300">🎯 Outcome:</b>
-                      <p className="text-slate-200 mt-1">{internship.details.outcome}</p>
-                    </div>
-                    <div className="mb-6">
-                      <b className="text-cyan-300">📩 Application:</b>
-                      <p className="text-slate-200 mt-1">
-                        Send your CV to <a href={`mailto:${internship.details.applicationEmail}?subject=${encodeURIComponent(internship.details.applicationSubject)}`} className="text-cyan-400 underline">{internship.details.applicationEmail}</a><br />
-                        Subject line: <span className="bg-slate-800 px-2 py-1 rounded text-xs text-cyan-200">{internship.details.applicationSubject}</span>
-                      </p>
-                    </div>
-                    <a
-                      href={`mailto:${internship.details.applicationEmail}?subject=${encodeURIComponent(internship.details.applicationSubject)}`}
-                      className="block w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-6 py-3 rounded-lg font-bold text-center shadow-md transition-all duration-300 mb-2"
-                    >
-                      Apply Now
-                    </a>
-                  </div>
-                )}
               </div>
             );
           })}
         </div>
       </section>
+
+      {/* Drawer/Side Panel for Internship Details */}
+      {openIndex !== null && (
+        <>
+          <div
+            className="fixed inset-0 bg-black/60 z-40 transition-opacity duration-300"
+            onClick={() => setOpenIndex(null)}
+            aria-label="Close details drawer background"
+          />
+          <aside className="fixed top-0 right-0 h-full w-full sm:w-[480px] bg-slate-900 z-50 shadow-2xl border-l border-cyan-500/20 animate-slide-in flex flex-col">
+            <button
+              className="self-end m-4 text-slate-400 hover:text-cyan-400 text-3xl font-bold"
+              onClick={() => setOpenIndex(null)}
+              aria-label="Close details drawer"
+            >
+              ×
+            </button>
+            <div className="p-8 overflow-y-auto flex-1">
+              <h3 className="text-2xl font-bold text-cyan-400 mb-2 font-designer flex items-center gap-2">
+                🛡️ Cyberpedia | {INTERNSHIPS[openIndex].title}
+              </h3>
+              <div className="mb-4 text-slate-300">
+                <b>Position:</b> {INTERNSHIPS[openIndex].title}<br />
+                <b>Duration:</b> {INTERNSHIPS[openIndex].duration}<br />
+                <b>Openings:</b> {INTERNSHIPS[openIndex].openings}<br />
+                <b>Deadline to Apply:</b> {INTERNSHIPS[openIndex].deadline.toLocaleDateString()}
+              </div>
+              <div className="mb-4">
+                <b className="text-cyan-300">📋 Internship Overview:</b>
+                <p className="text-slate-200 mt-1">{INTERNSHIPS[openIndex].details.overview}</p>
+              </div>
+              <div className="mb-4">
+                <b className="text-cyan-300">✅ Requirements:</b>
+                <ul className="list-disc list-inside text-slate-200 mt-1">
+                  {INTERNSHIPS[openIndex].details.requirements.map((req, i) => (
+                    <li key={i}>{req}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mb-4">
+                <b className="text-cyan-300">🔧 Responsibilities:</b>
+                <ul className="list-disc list-inside text-slate-200 mt-1">
+                  {INTERNSHIPS[openIndex].details.responsibilities.map((res, i) => (
+                    <li key={i}>{res}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mb-4">
+                <b className="text-cyan-300">🎯 Outcome:</b>
+                <p className="text-slate-200 mt-1">{INTERNSHIPS[openIndex].details.outcome}</p>
+              </div>
+              <div className="mb-6">
+                <b className="text-cyan-300">📩 Application:</b>
+                <p className="text-slate-200 mt-1">
+                  Send your CV to <a href={`mailto:${INTERNSHIPS[openIndex].details.applicationEmail}?subject=${encodeURIComponent(INTERNSHIPS[openIndex].details.applicationSubject)}`} className="text-cyan-400 underline">{INTERNSHIPS[openIndex].details.applicationEmail}</a><br />
+                  Subject line: <span className="bg-slate-800 px-2 py-1 rounded text-xs text-cyan-200">{INTERNSHIPS[openIndex].details.applicationSubject}</span>
+                </p>
+              </div>
+              <a
+                href={`mailto:${INTERNSHIPS[openIndex].details.applicationEmail}?subject=${encodeURIComponent(INTERNSHIPS[openIndex].details.applicationSubject)}`}
+                className="block w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-6 py-3 rounded-lg font-bold text-center shadow-md transition-all duration-300 mb-2"
+              >
+                Apply Now
+              </a>
+            </div>
+          </aside>
+        </>
+      )}
     </div>
   );
 } 
