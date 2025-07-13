@@ -5,22 +5,22 @@ import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 const NOTION_DATABASE_ID = '22f1a80d-02b9-80d2-9923-f4e5113e990e';
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
-function getTitle(props: any, key: string) {
+function getTitle(props: PageObjectResponse['properties'], key: string) {
   return props[key]?.type === 'title' && props[key].title[0]
     ? props[key].title[0].plain_text
     : '';
 }
-function getRichText(props: any, key: string) {
+function getRichText(props: PageObjectResponse['properties'], key: string) {
   return props[key]?.type === 'rich_text' && props[key].rich_text[0]
     ? props[key].rich_text[0].plain_text
     : '';
 }
-function getDate(props: any, key: string) {
+function getDate(props: PageObjectResponse['properties'], key: string) {
   return props[key]?.type === 'date' && props[key].date?.start
     ? props[key].date.start
     : '';
 }
-function getEmail(props: any, key: string) {
+function getEmail(props: PageObjectResponse['properties'], key: string) {
   return props[key]?.type === 'email' && props[key].email
     ? props[key].email
     : '';
