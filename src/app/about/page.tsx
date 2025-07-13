@@ -4,7 +4,6 @@ import { Shield, Lock, Eye, Users, Award, CheckCircle, Target, Zap, Heart } from
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
 import ProfileCard from '@/components/ProfileCard';
 
 interface TeamMember {
