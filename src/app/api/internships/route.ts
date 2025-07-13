@@ -1,11 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Client } from '@notionhq/client';
-import {
-  PageObjectResponse,
-  PartialPageObjectResponse,
-  DatabaseObjectResponse,
-  PartialDatabaseObjectResponse,
-} from '@notionhq/client/build/src/api-endpoints';
+import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
 const NOTION_DATABASE_ID = '22f1a80d-02b9-80d2-9923-f4e5113e990e';
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
