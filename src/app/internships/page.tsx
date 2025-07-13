@@ -112,7 +112,7 @@ export default function InternshipsPage() {
       {/* Internship Modal / Details Section */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-          <div className="bg-slate-900 rounded-2xl shadow-2xl p-8 max-w-xl w-full relative animate-fade-in">
+          <div className="bg-slate-900 rounded-2xl shadow-2xl p-10 max-w-2xl w-full relative animate-fade-in">
             <button
               className="absolute top-4 right-4 text-slate-400 hover:text-cyan-400 text-2xl font-bold"
               onClick={() => setShowModal(false)}
@@ -175,95 +175,6 @@ export default function InternshipsPage() {
           </div>
         </div>
       )}
-
-      {/* What You'll Gain Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/80">
-        <div className="max-w-3xl mx-auto text-center">
-          <h3 className="text-3xl font-bold text-cyan-400 mb-4 font-designer">🎓 What You’ll Gain from the Internship:</h3>
-          <ul className="text-lg text-slate-200 space-y-2 mb-6">
-            <li>Hands-on experience with real-world SOC tools (SIEM, XDR, Threat Intel)</li>
-            <li>Exposure to live incident response workflows</li>
-            <li>Certificate of Completion from Cyberpedia</li>
-            <li>Potential full-time offer based on performance</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <h3 className="text-3xl font-bold text-cyan-400 mb-8 font-designer">🗣️ What Our Interns Say:</h3>
-          <div className="flex flex-col items-center gap-8">
-            {TESTIMONIALS.map((t, i) => (
-              <div key={i} className="bg-slate-900/80 rounded-xl p-6 shadow-md border border-cyan-500/10 max-w-md w-full">
-                <div className="text-lg text-slate-200 mb-2">“{t.quote}”</div>
-                <div className="text-cyan-400 font-bold">{t.name}</div>
-                <div className="text-slate-400 text-sm">{t.role}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/80">
-        <div className="max-w-3xl mx-auto">
-          <h3 className="text-3xl font-bold text-cyan-400 mb-8 font-designer">❓ Frequently Asked Questions</h3>
-          <div className="space-y-6">
-            {FAQS.map((faq, i) => (
-              <div key={i} className="bg-slate-950/80 rounded-lg p-6 border border-cyan-500/10">
-                <div className="font-bold text-cyan-300 mb-2">Q: {faq.q}</div>
-                <div className="text-slate-200">A: {faq.a}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action / Footer Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 text-center">
-        <h3 className="text-3xl font-bold text-cyan-400 mb-4 font-designer">🚀 Ready to kickstart your cybersecurity career?</h3>
-        <a
-          href={`mailto:${INTERNSHIP.details.applicationEmail}?subject=${encodeURIComponent(INTERNSHIP.details.applicationSubject)}`}
-          className="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-8 py-3 rounded-lg font-bold shadow-lg transition-all duration-300 mb-4"
-        >
-          Apply for SOC Analyst Internship
-        </a>
-        <div className="text-slate-300 mb-6">or</div>
-        <button
-          className="inline-block bg-slate-800 text-cyan-300 px-8 py-3 rounded-lg font-bold shadow-md border border-cyan-500/20 hover:bg-slate-900 transition-all duration-300 mb-4"
-          onClick={() => alert("You have joined the waitlist!")}
-        >
-          Join the Waitlist for Future Programs
-        </button>
-        <div className="max-w-md mx-auto mt-8">
-          <form
-            className="flex gap-2"
-            onSubmit={e => {
-              e.preventDefault();
-              setSubscribed(true);
-            }}
-          >
-            <input
-              type="email"
-              placeholder="Get notified about future internships"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              required
-              className="flex-1 px-4 py-2 rounded-l-lg bg-slate-800 border border-cyan-500/20 text-white placeholder-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-              disabled={subscribed}
-            />
-            <button
-              type="submit"
-              className="bg-cyan-500 hover:bg-cyan-400 text-white px-6 py-2 rounded-r-lg font-bold transition-all duration-300"
-              disabled={subscribed}
-            >
-              {subscribed ? "Subscribed!" : "Notify Me"}
-            </button>
-          </form>
-          {subscribed && <div className="text-green-400 mt-2 text-sm">You’ll be notified about future internships!</div>}
-        </div>
-      </section>
     </div>
   );
 } 
