@@ -30,7 +30,7 @@ const ContactPage: React.FC = () => {
         const data = await res.json();
         setError(data.error || "Something went wrong. Please try again.");
       }
-    } catch (err) {
+    } catch {
       setError("Network error. Please try again.");
     }
   };
