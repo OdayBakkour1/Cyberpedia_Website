@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { Shield, Lock, Eye, Users, CheckCircle, Zap, Globe, UserCheck, Timer, Globe2, Star, Layers, Plus } from 'lucide-react';
+import { Shield, Lock, Eye, Users, CheckCircle, Zap, Globe, UserCheck, Timer, Globe2, Star, Layers, Plus, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -154,12 +154,12 @@ const HomeClient: React.FC = () => {
             {/* Left: Vision & Mission */}
             <div className="flex flex-col gap-8">
               <div className="bg-slate-900/80 border border-cyan-500/10 rounded-xl p-6 shadow flex flex-col items-start">
-                <Plus className="w-8 h-8 text-cyan-400 mb-2" />
+                <Eye className="w-8 h-8 text-cyan-400 mb-2" />
                 <h3 className="text-xl font-semibold text-white mb-2">OUR VISION</h3>
                 <p className="text-slate-300">To build a world where every organization no matter how large or small—can innovate and grow with total confidence in their digital security.</p>
               </div>
               <div className="bg-slate-900/80 border border-cyan-500/10 rounded-xl p-6 shadow flex flex-col items-start">
-                <Plus className="w-8 h-8 text-cyan-400 mb-2" />
+                <Target className="w-8 h-8 text-blue-400 mb-2" />
                 <h3 className="text-xl font-semibold text-white mb-2">OUR MISSION</h3>
                 <p className="text-slate-300">To deliver best-in-class, people-powered cybersecurity solutions that are accessible, proactive, and tailored to the unique needs of each client.</p>
               </div>
