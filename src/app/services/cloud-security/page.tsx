@@ -5,6 +5,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
+export const metadata = {
+  title: "Expert Cloud Security Solutions | Cyberpedia",
+  description: "Secure your cloud environments (AWS, Azure, GCP) with Cyberpedia's expert cloud security services. We protect your data and infrastructure from misconfigurations and threats."
+};
+
 const CloudSecurityPage: React.FC = () => (
   <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
     <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">

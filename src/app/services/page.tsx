@@ -74,6 +74,11 @@ const stats: Stat[] = [
   },
 ];
 
+export const metadata = {
+  title: "Comprehensive Cybersecurity Services | Cyberpedia",
+  description: "Explore a full suite of cybersecurity services at Cyberpedia, including Managed SOC, Penetration Testing, and Cloud Security, all tailored to protect your organization."
+};
+
 const ServicesPage: React.FC = () => {
   const floatingRef = useRef<HTMLDivElement>(null);
 

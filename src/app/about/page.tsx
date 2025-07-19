@@ -26,6 +26,11 @@ interface Value {
   icon: React.ReactNode;
 }
 
+export const metadata = {
+  title: "About Us | Leading Cybersecurity Experts | Cyberpedia",
+  description: "Learn about Cyberpedia, a global cybersecurity leader dedicated to protecting businesses. Discover our mission, our expert team, and our commitment to digital security."
+};
+
 const AboutPage: React.FC = () => {
   const floatingRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);

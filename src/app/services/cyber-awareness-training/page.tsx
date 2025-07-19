@@ -5,6 +5,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
+export const metadata = {
+  title: "Cyber Awareness Training for Employees | Cyberpedia",
+  description: "Empower your employees to be your first line of defense. Cyberpedia offers engaging cyber awareness training to reduce human error and prevent costly phishing attacks."
+};
+
 const CyberAwarenessTrainingPage: React.FC = () => (
   <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
     <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">

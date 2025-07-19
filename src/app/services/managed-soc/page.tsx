@@ -5,6 +5,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
+export const metadata = {
+  title: "Managed SOC Services (24/7 Threat Monitoring) | Cyberpedia",
+  description: "Get 24/7 threat detection and response with Cyberpedia's Managed Security Operations Center (SOC). Our expert team stops breaches before they impact your business."
+};
+
 const ManagedSOCPage: React.FC = () => (
   <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
     <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">

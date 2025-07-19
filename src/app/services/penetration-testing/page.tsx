@@ -5,6 +5,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
+export const metadata = {
+  title: "Penetration Testing Services | Ethical Hacking | Cyberpedia",
+  description: "Uncover and fix critical security flaws with our comprehensive penetration testing services. Cyberpedia's ethical hackers simulate real-world attacks to strengthen your defenses."
+};
+
 const PenetrationTestingPage: React.FC = () => (
   <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
     <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">

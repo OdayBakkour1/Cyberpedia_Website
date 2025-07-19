@@ -22,6 +22,11 @@ function getDaysLeft(deadline: string) {
   return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
 }
 
+export const metadata = {
+  title: "Cybersecurity Internships | Start Your Career at Cyberpedia",
+  description: "Looking for a cybersecurity internship? Join the innovative team at Cyberpedia. Gain hands-on experience and build your career with leading industry experts."
+};
+
 export default function InternshipsPage() {
   const [internships, setInternships] = useState<Internship[]>([]);
   const [loading, setLoading] = useState(true);
