@@ -288,7 +288,7 @@ function CircleAnimation() {
     }
     
     requestIdRef.current = requestAnimationFrame(draw);
-  }, [initArr]);
+  }, []);
 
   // Initialize canvas and start animation
   useEffect(() => {

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useCallback, useMemo } from "react";
 import "./ProfileCard.css";
+import Image from 'next/image';
 
 const DEFAULT_BEHIND_GRADIENT =
   "radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),rgba(6,182,212,var(--card-opacity)) 4%,rgba(59,130,246,0.75) 10%,rgba(6,182,212,0.5) 50%,rgba(15,23,42,0) 100%),radial-gradient(35% 52% at 55% 20%,#06b6d4c4 0%,#3b82f600 100%),radial-gradient(100% 100% at 50% 50%,#3b82f6ff 1%,#06b6d400 76%),conic-gradient(from 124deg at 50% 50%,#06b6d4ff 0%,#3b82f6ff 40%,#3b82f6ff 60%,#06b6d4ff 100%)";
@@ -270,29 +271,22 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = (props) => {
           <div className="pc-shine" />
           <div className="pc-glare" />
           <div className="pc-content pc-avatar-content">
-            <img
+            <Image
               className="avatar"
               src={avatarUrl}
               alt={`${name || "User"} avatar`}
-              loading="lazy"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = "none";
-              }}
+              fill
+              priority
             />
             {showUserInfo && (
               <div className="pc-user-info">
                 <div className="pc-user-details">
                   <div className="pc-mini-avatar">
-                    <img
+                    <Image
                       src={miniAvatarUrl || avatarUrl}
                       alt={`${name || "User"} mini avatar`}
-                      loading="lazy"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.opacity = "0.5";
-                        target.src = avatarUrl;
-                      }}
+                      fill
+                      priority
                     />
                   </div>
                   <div className="pc-user-text">
