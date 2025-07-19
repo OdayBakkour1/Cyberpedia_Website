@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import { Shield } from "lucide-react";
+import { Shield, Award, CheckCircle, Eye } from "lucide-react";
 
 const AboutClient: React.FC = () => {
   const floatingRef = useRef<HTMLDivElement>(null);
@@ -34,6 +34,30 @@ const AboutClient: React.FC = () => {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  // Restore the stats array for the About page
+  const stats = [
+    {
+      value: "10+",
+      label: "Years Experience",
+      icon: <Award className="w-6 h-6" />,
+    },
+    {
+      value: "500+",
+      label: "Clients Protected",
+      icon: <Shield className="w-6 h-6" />,
+    },
+    {
+      value: "99.9%",
+      label: "Uptime Guarantee",
+      icon: <CheckCircle className="w-6 h-6" />,
+    },
+    {
+      value: "24/7",
+      label: "Security Monitoring",
+      icon: <Eye className="w-6 h-6" />,
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-slate-950 text-white overflow-hidden">
