@@ -83,17 +83,17 @@ export default function Footer() {
             <h4 className="text-white font-semibold font-designer mb-4">Company</h4>
             <div className="space-y-2">
               <a href="#" className="block text-slate-300 hover:text-cyan-400">About Us</a>
-              <a href="#" className="block text-slate-300 hover:text-cyan-400">Careers</a>
-              <a href="#" className="block text-slate-300 hover:text-cyan-400">Blog</a>
+              <a href="/internships" className="block text-slate-300 hover:text-cyan-400">Internships</a>
+              <a href="https://blog.cyberpedia.site/" target="_blank" rel="noopener noreferrer" className="block text-slate-300 hover:text-cyan-400">Blog</a>
               <a href="#" className="block text-slate-300 hover:text-cyan-400">Contact</a>
             </div>
           </div>
           <div>
             <h4 className="text-white font-semibold font-designer mb-4">Cyberpediaverse</h4>
             <div className="space-y-2">
-              <a href="#" className="block text-slate-300 hover:text-cyan-400">Hunterpedia</a>
-              <a href="#" className="block text-slate-300 hover:text-cyan-400">Books</a>
-              <a href="#" className="block text-slate-300 hover:text-cyan-400">Platform</a>
+              <a href="https://www.hunterpedia.site/" target="_blank" rel="noopener noreferrer" className="block text-slate-300 hover:text-cyan-400">Hunterpedia</a>
+              <a href="https://books.cyberpedia.site/" target="_blank" rel="noopener noreferrer" className="block text-slate-300 hover:text-cyan-400">Books</a>
+              <a href="https://platform.cyberpedia.site/" target="_blank" rel="noopener noreferrer" className="block text-slate-300 hover:text-cyan-400">Platform</a>
             </div>
           </div>
         </div>
