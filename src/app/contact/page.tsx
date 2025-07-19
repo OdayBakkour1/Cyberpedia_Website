@@ -5,6 +5,14 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
+export const metadata = {
+  title: "Contact Us | Cyberpedia",
+  description: "Get in touch with Cyberpedia for expert cybersecurity support and services. We're here to help you secure your business.",
+  alternates: {
+    canonical: "https://cyberpedia.site/contact"
+  }
+};
+
 const ContactPage: React.FC = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);

@@ -6,7 +6,10 @@ import { Badge } from "@/components/ui/badge";
 
 export const metadata = {
   title: "Penetration Testing Services | Ethical Hacking | Cyberpedia",
-  description: "Uncover and fix critical security flaws with our comprehensive penetration testing services. Cyberpedia's ethical hackers simulate real-world attacks to strengthen your defenses."
+  description: "Uncover and fix critical security flaws with our comprehensive penetration testing services. Cyberpedia's ethical hackers simulate real-world attacks to strengthen your defenses.",
+  alternates: {
+    canonical: "https://cyberpedia.site/services/penetration-testing"
+  }
 };
 
 const PenetrationTestingPage: React.FC = () => (

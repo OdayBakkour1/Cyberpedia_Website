@@ -6,7 +6,10 @@ import { Badge } from "@/components/ui/badge";
 
 export const metadata = {
   title: "DevSecOps Services | Secure Your Development Lifecycle | Cyberpedia",
-  description: "Integrate security directly into your development lifecycle with our DevSecOps solutions. Cyberpedia helps you build and deploy secure applications faster and more efficiently."
+  description: "Integrate security directly into your development lifecycle with our DevSecOps solutions. Cyberpedia helps you build and deploy secure applications faster and more efficiently.",
+  alternates: {
+    canonical: "https://cyberpedia.site/services/devsecops"
+  }
 };
 
 const DevSecOpsPage: React.FC = () => (

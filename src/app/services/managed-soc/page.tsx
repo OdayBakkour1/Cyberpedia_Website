@@ -6,7 +6,10 @@ import { Badge } from "@/components/ui/badge";
 
 export const metadata = {
   title: "Managed SOC Services (24/7 Threat Monitoring) | Cyberpedia",
-  description: "Get 24/7 threat detection and response with Cyberpedia's Managed Security Operations Center (SOC). Our expert team stops breaches before they impact your business."
+  description: "Get 24/7 threat detection and response with Cyberpedia's Managed Security Operations Center (SOC). Our expert team stops breaches before they impact your business.",
+  alternates: {
+    canonical: "https://cyberpedia.site/services/managed-soc"
+  }
 };
 
 const ManagedSOCPage: React.FC = () => (

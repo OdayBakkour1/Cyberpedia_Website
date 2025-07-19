@@ -6,7 +6,10 @@ import { Badge } from "@/components/ui/badge";
 
 export const metadata = {
   title: "Cyber Awareness Training for Employees | Cyberpedia",
-  description: "Empower your employees to be your first line of defense. Cyberpedia offers engaging cyber awareness training to reduce human error and prevent costly phishing attacks."
+  description: "Empower your employees to be your first line of defense. Cyberpedia offers engaging cyber awareness training to reduce human error and prevent costly phishing attacks.",
+  alternates: {
+    canonical: "https://cyberpedia.site/services/cyber-awareness-training"
+  }
 };
 
 const CyberAwarenessTrainingPage: React.FC = () => (

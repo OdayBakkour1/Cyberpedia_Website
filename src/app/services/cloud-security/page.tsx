@@ -6,7 +6,10 @@ import { Badge } from "@/components/ui/badge";
 
 export const metadata = {
   title: "Expert Cloud Security Solutions | Cyberpedia",
-  description: "Secure your cloud environments (AWS, Azure, GCP) with Cyberpedia's expert cloud security services. We protect your data and infrastructure from misconfigurations and threats."
+  description: "Secure your cloud environments (AWS, Azure, GCP) with Cyberpedia's expert cloud security services. We protect your data and infrastructure from misconfigurations and threats.",
+  alternates: {
+    canonical: "https://cyberpedia.site/services/cloud-security"
+  }
 };
 
 const CloudSecurityPage: React.FC = () => (
