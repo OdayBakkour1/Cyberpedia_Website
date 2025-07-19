@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { Shield, Globe, Lock, Eye, CheckCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
