@@ -71,21 +71,21 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold font-designer mb-4">Services</h4>
             <div className="space-y-2">
-              <a href="#" className="block text-slate-300 hover:text-cyan-400">Cloud Security</a>
-              <a href="#" className="block text-slate-300 hover:text-cyan-400">DevSecOps</a>
-              <a href="#" className="block text-slate-300 hover:text-cyan-400">Vulnerability Management</a>
-              <a href="#" className="block text-slate-300 hover:text-cyan-400">Managed SOC</a>
-              <a href="#" className="block text-slate-300 hover:text-cyan-400">Penetration Testing</a>
-              <a href="#" className="block text-slate-300 hover:text-cyan-400">Cyber Awareness Training</a>
+              <a href="/services/cloud-security" className="block text-slate-300 hover:text-cyan-400">Cloud Security</a>
+              <a href="/services/devsecops" className="block text-slate-300 hover:text-cyan-400">DevSecOps</a>
+              <a href="/services/vulnerability-management" className="block text-slate-300 hover:text-cyan-400">Vulnerability Management</a>
+              <a href="/services/managed-soc" className="block text-slate-300 hover:text-cyan-400">Managed SOC</a>
+              <a href="/services/penetration-testing" className="block text-slate-300 hover:text-cyan-400">Penetration Testing</a>
+              <a href="/services/cyber-awareness-training" className="block text-slate-300 hover:text-cyan-400">Cyber Awareness Training</a>
             </div>
           </div>
           <div>
             <h4 className="text-white font-semibold font-designer mb-4">Company</h4>
             <div className="space-y-2">
-              <a href="#" className="block text-slate-300 hover:text-cyan-400">About Us</a>
+              <a href="/about" className="block text-slate-300 hover:text-cyan-400">About Us</a>
               <a href="/internships" className="block text-slate-300 hover:text-cyan-400">Internships</a>
               <a href="https://blog.cyberpedia.site/" target="_blank" rel="noopener noreferrer" className="block text-slate-300 hover:text-cyan-400">Blog</a>
-              <a href="#" className="block text-slate-300 hover:text-cyan-400">Contact</a>
+              <a href="/contact" className="block text-slate-300 hover:text-cyan-400">Contact</a>
             </div>
           </div>
           <div>
