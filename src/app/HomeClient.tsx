@@ -2,9 +2,11 @@
 import React from 'react';
 import { Shield, Lock, Eye, Users, CheckCircle, Zap, Globe, UserCheck, Timer, Globe2, Star, Layers, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -124,8 +126,8 @@ const HomeClient: React.FC = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-300 to-blue-300 bg-clip-text text-transparent animate-pulse font-designer">Protect Your Digital Assets with Cyberpedia</h1>
             <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed hover:text-slate-200 transition-colors duration-300">Comprehensive cybersecurity services designed to safeguard your business from evolving threats. Our expert team provides 24/7 protection with cutting-edge technology.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white">Start Free Assessment</Button>
-              <Button size="lg" variant="default" className="border border-cyan-500 text-cyan-400 bg-transparent hover:bg-cyan-500/10">Learn More</Button>
+              <Link href="/contact" passHref legacyBehavior><a className={buttonVariants({ size: 'lg', className: 'bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white' })}>Start Free Assessment</a></Link>
+              <Link href="/about" passHref legacyBehavior><a className={buttonVariants({ size: 'lg', variant: 'default', className: 'border border-cyan-500 text-cyan-400 bg-transparent hover:bg-cyan-500/10' })}>Learn More</a></Link>
             </div>
           </div>
         </div>
@@ -173,7 +175,7 @@ const HomeClient: React.FC = () => {
               <div>
                 <p className="text-slate-300 text-lg mb-6">Cyberpedia is a leading cybersecurity partner on a mission to help you run your business securely and successfully.<br/><br/>With a team of seasoned security analysts, engineers, and trainers, we bring decades of combined expertise to every engagement.<br/><br/>We blend pioneering technology with a human touch so you’re not just buying tools, but gaining a trusted partner who truly understands your challenges.<br/><br/>From continuous monitoring and vulnerability management to incident response and hands-on training, we make high-impact security both straightforward and sustainable.</p>
               </div>
-              <Button size="lg" variant="default" className="border border-cyan-500 text-cyan-400 bg-transparent hover:bg-cyan-500/10">Learn More</Button>
+              <Link href="/about" passHref legacyBehavior><a className={buttonVariants({ size: 'lg', variant: 'default', className: 'border border-cyan-500 text-cyan-400 bg-transparent hover:bg-cyan-500/10' })}>Learn More</a></Link>
             </div>
           </div>
         </div>
@@ -216,8 +218,8 @@ const HomeClient: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white font-designer">Ready to Secure Your Business?</h2>
           <p className="text-xl text-slate-300 mb-8">Get started with a free security assessment and discover how we can protect your digital assets.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700 text-white">Get Free Assessment</Button>
-            <Button size="lg" variant="default" className="border border-cyan-500 text-cyan-400 bg-transparent hover:bg-cyan-500/10">Contact Sales</Button>
+            <Link href="/contact" passHref legacyBehavior><a className={buttonVariants({ size: 'lg', className: 'bg-cyan-600 hover:bg-cyan-700 text-white' })}>Get Free Assessment</a></Link>
+            <Link href="/contact" passHref legacyBehavior><a className={buttonVariants({ size: 'lg', variant: 'default', className: 'border border-cyan-500 text-cyan-400 bg-transparent hover:bg-cyan-500/10' })}>Contact Sales</a></Link>
           </div>
         </div>
       </section>
