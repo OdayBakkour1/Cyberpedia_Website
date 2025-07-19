@@ -22,9 +22,16 @@ const CloudSecurityPage: React.FC = () => (
           <p className="text-xl text-slate-300 max-w-2xl leading-relaxed mb-4">
             Secure your cloud journey with end-to-end encryption, zero-trust access, and real-time threat detection. Our experts design, implement, and monitor robust cloud security architectures tailored to your business needs.
           </p>
-          <Button size="lg" className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white px-8 py-3 text-lg mt-2">
-            Apply for Cloud Security
-          </Button>
+          <a
+            href="mailto:info@cyberpedia.site?subject=Cloud%20Security%20-%20Need%20to%20discuss%20more%20about%20it&body=Hello%2C%0A%0AI%20am%20interested%20in%20discussing%20more%20about%20your%20Cloud%20Security%20service.%0A%0AThank%20you!"
+            style={{ textDecoration: 'none' }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button size="lg" className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white px-8 py-3 text-lg mt-2">
+              Apply for Cloud Security
+            </Button>
+          </a>
         </div>
         <div className="flex-1 flex flex-col items-center md:items-end w-full">
           <Card className="bg-slate-900/80 p-8 w-full max-w-md shadow-xl border-cyan-500/10">
