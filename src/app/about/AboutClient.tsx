@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import { Shield } from "lucide-react";
 
 const AboutClient: React.FC = () => {
   const floatingRef = useRef<HTMLDivElement>(null);

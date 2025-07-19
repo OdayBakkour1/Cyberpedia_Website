@@ -4,6 +4,7 @@ import { Shield, Lock, Eye, Users, CheckCircle, Zap, Globe, UserCheck, Timer, Gl
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import Image from 'next/image';
 
 interface ServiceCardProps {
   icon: React.ReactNode;
@@ -165,7 +166,7 @@ const HomeClient: React.FC = () => {
             </div>
             {/* Center: Image */}
             <div className="flex justify-center items-center">
-              <img src="/CYBERPEDIA-Logo.webp" alt="Who We Are" width={400} height={200} className="rounded-xl object-contain w-full max-w-xs md:max-w-sm lg:max-w-md shadow-lg border border-cyan-500/10 bg-slate-900/60" />
+              <Image src="/CYBERPEDIA-Logo.webp" alt="Who We Are" width={400} height={200} className="rounded-xl object-contain w-full max-w-xs md:max-w-sm lg:max-w-md shadow-lg border border-cyan-500/10 bg-slate-900/60" priority />
             </div>
             {/* Right: Summary & Button */}
             <div className="flex flex-col h-full justify-between">
