@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import { Shield, Award, CheckCircle, Eye } from "lucide-react";
+import { Shield, Award, CheckCircle, Eye, Target, Zap, Heart, Users } from "lucide-react";
 
 const AboutClient: React.FC = () => {
   const floatingRef = useRef<HTMLDivElement>(null);
@@ -56,6 +56,34 @@ const AboutClient: React.FC = () => {
       value: "24/7",
       label: "Security Monitoring",
       icon: <Eye className="w-6 h-6" />,
+    },
+  ];
+
+  // Restore the values array for the About page
+  const values = [
+    {
+      title: "Excellence",
+      description:
+        "We strive for perfection in every security solution, ensuring the highest standards of protection.",
+      icon: <Target className="w-8 h-8 text-cyan-500" />,
+    },
+    {
+      title: "Innovation",
+      description:
+        "Cutting-edge technology and forward-thinking approaches to stay ahead of emerging threats.",
+      icon: <Zap className="w-8 h-8 text-blue-500" />,
+    },
+    {
+      title: "Trust",
+      description:
+        "Building lasting relationships through transparency, reliability, and unwavering commitment.",
+      icon: <Heart className="w-8 h-8 text-pink-500" />,
+    },
+    {
+      title: "Collaboration",
+      description:
+        "Working as an extension of your team to create comprehensive security strategies.",
+      icon: <Users className="w-8 h-8 text-green-500" />,
     },
   ];
 
